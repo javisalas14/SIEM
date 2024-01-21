@@ -1,0 +1,35 @@
+<decoder name=" crowdstrike ">
+2 <prematch>^CEF:\d|Crowdstrike|FalconHost|\w+\.\w\|</prematch>
+3 </decoder >
+4
+5 <decoder name=" crowdstrike ">
+6 <parent >crowdstrike </parent >
+7 <regex o f f s e t =" a f t e r _ p a r e n t " >^\.+\p\.+\p\.+\p\.+\|(\.+)\|</regex >
+8 <order >eventType </order >
+9 </decoder >
+10
+11 <decoder name=" crowdstrike ">
+12 <parent >crowdstrike </parent >
+13 <regex o f f s e t =" a f t e r _ p a r e n t ">duser =(\.+)\s</regex >
+14 <order >srcuser </order >
+15 </decoder >
+16
+17 <decoder name=" crowdstrike ">
+18 <parent >crowdstrike </parent >
+19 <regex o f f s e t =" a f t e r _ p a r e n t ">msg=(\.+) . </ regex >
+20 <order >action </order >
+21 </decoder >
+22
+23 <decoder name=" crowdstrike ">
+24 <parent >crowdstrike </parent >
+25 <regex o f f s e t =" a f t e r _ p a r e n t ">technique =(\.+) o b j e c t i v e </regex >
+
+42 Implantación
+26 <order >technique </order >
+27 </decoder >
+28
+29 <decoder name=" crowdstrike ">
+30 <parent >crowdstrike </parent >
+31 <regex o f f s e t =" a f t e r _ p a r e n t ">outcome=(\S+)\s|outcome=(\S+)$</regex >
+32 <order >outcome</order >
+33 </decoder >
