@@ -1,0 +1,34 @@
+<decoder name="crowdstrike">
+    <prematch>^CEF:\d|Crowdstrike|FalconHost|\w+\.\w\|</prematch>
+</decoder>
+
+<decoder name="crowdstrike">
+    <parent>crowdstrike</parent>
+    <regex offset="after_parent">^\.+\p\.+\p\.+\p\.+\|(\.+)\|</regex>
+    <order>eventType</order>
+</decoder>
+
+<decoder name="crowdstrike">
+    <parent>crowdstrike</parent>
+    <regex offset="after_parent">duser=(\.+)\s</regex>
+    <order>srcuser</order>
+</decoder>
+
+<decoder name="crowdstrike">
+    <parent>crowdstrike</parent>
+    <regex offset="after_parent">msg=(\.+) .</regex>
+    <order>action</order>
+</decoder>
+
+<decoder name="crowdstrike">
+    <parent>crowdstrike</parent>
+    <regex offset="after_parent">technique=(.+) objective</regex>
+    <order>technique</order>
+</decoder>
+
+<decoder name="crowdstrike">
+    <parent>crowdstrike</parent>
+    <regex offset="after_parent">outcome=(\S+)\s|outcome=(\S+)$</regex>
+    <order>outcome</order>
+</decoder>
+
